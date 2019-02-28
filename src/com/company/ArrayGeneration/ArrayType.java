@@ -5,5 +5,6 @@ public enum ArrayType {
     ReversedSorted,
     Random,
     Shuffle,
-    Binary
+    Binary,
+    Custom
 }

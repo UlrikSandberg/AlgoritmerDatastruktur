@@ -48,14 +48,4 @@ public class Cycles {
         }
         return numberOfCycles;
     }
-
-    public static int[] CountCyclesBinary(int[] input)
-    {
-
-
-
-        return input;
-
-    }
-
 }

@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class ArrayGenerater {
 
-    public static int[] GenerateArray(int size, ArrayType arrayType)
+    public static int[] GenerateArray(int size, ArrayType arrayType, int... customs)
     {
         switch (arrayType)
         {
@@ -19,6 +19,8 @@ public class ArrayGenerater {
                 return ShuffleArray(sortedArr);
             case Binary:
                 return makeBinaryArray(size);
+            case Custom:
+                return makeCustomArray(customs);
         }
 
         return new int[0];
@@ -83,5 +85,10 @@ public class ArrayGenerater {
         }
 
         return binaryArr;
+    }
+
+    private static int[] makeCustomArray(int... customSequence)
+    {
+        return customSequence;
     }
 }
