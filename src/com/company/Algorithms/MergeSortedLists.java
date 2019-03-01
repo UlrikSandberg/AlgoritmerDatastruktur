@@ -1,5 +1,7 @@
 package com.company.Algorithms;
 
+import com.company.ArrayGeneration.ArrayGenerater;
+import com.company.ArrayGeneration.ArrayType;
 import com.company.DataStructures.Heap.Element;
 import com.company.DataStructures.Heap.Heap;
 import com.company.DataStructures.Heap.HeapType;
@@ -7,7 +9,7 @@ import com.company.DataStructures.Heap.HeapType;
 public class MergeSortedLists {
 
 
-    //Not done
+    //Not completely bullet proof but almost.
 
     /* Pseudo code / idea
 
@@ -21,13 +23,16 @@ public class MergeSortedLists {
 
     public static Element[] Merge(Element[]... lists)
     {
+        int[] countingArray = ArrayGenerater.GenerateArray(lists.length, ArrayType.Binary);
+
         int totalSize = 0;
         //Construct min heap from --> O(lists.length)
         Element[] heads = new Element[lists.length];
 
         for(int i = 0; i < lists.length; i++)
         {
-            heads[i] = lists[i][0];
+            heads[i] = new Element(lists[i][0].getKey(), i);
+            countingArray[i] += 1;
             totalSize += lists[i].length;
         }
 
@@ -36,12 +41,24 @@ public class MergeSortedLists {
         //Make new Element array
         Element[] finalArr = new Element[totalSize];
 
-
         for(int i = 0; i < totalSize; i++)
         {
+            //Extract the first element
+            finalArr[i] = minHeap.ExtractFirst();
 
+            int extractFromKList = (int)finalArr[i].getData();
+
+            Element[] kList = lists[extractFromKList];
+
+            int kListIndex = countingArray[extractFromKList];
+
+            if(kListIndex < kList.length)
+            {
+                minHeap.Insert(new Element(kList[kListIndex].getKey(), extractFromKList));
+                countingArray[extractFromKList]++;
+            }
         }
 
-        return new Element[0];
+        return finalArr;
     }
 }

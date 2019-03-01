@@ -88,12 +88,12 @@ public class Heap {
      *
      * @return Element
      */
-    public Element ExtractFirst() throws HeapUnderflowException {
+    public Element ExtractFirst() {
 
         //Check if heapSize is below 1, if so throw a HeapUnderflowException();
         if(_heapSize < 1)
         {
-            throw new HeapUnderflowException();
+            //throw new HeapUnderflowException();
         }
 
         //Extract min element

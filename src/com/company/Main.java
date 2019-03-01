@@ -1,39 +1,17 @@
 package com.company;
-import com.company.Algorithms.MergeSortedLists;
 import com.company.ArrayGeneration.ArrayGenerater;
 import com.company.ArrayGeneration.ArrayType;
-import com.company.DataStructures.Heap.Element;
-import com.company.DataStructures.Heap.Heap;
-import com.company.DataStructures.Heap.HeapType;
-
-import java.util.Scanner;
+import com.company.Sorting.Quicksort.Quicksort;
 
 public class Main {
 
     public static void main(String[] args) {
-	// write your code here
+
+        int[] array = ArrayGenerater.GenerateArray(0, ArrayType.Custom, 3,4,1,5,7,4,4,5,6,5);//ArrayGenerater.GenerateArray(20, ArrayType.Shuffle);
+
+        Quicksort.SortMedianPartition(array, 0, array.length -1);
 
 
-        Element[] arr1 = ConvertToElementArr(ArrayGenerater.GenerateArray(10, ArrayType.Sorted));
 
-        Element[] arr2 = ConvertToElementArr(ArrayGenerater.GenerateArray(15, ArrayType.Sorted));
-
-        Element[] arr3 = ConvertToElementArr(ArrayGenerater.GenerateArray(20, ArrayType.Sorted));
-
-        MergeSortedLists.Merge(arr1, arr2, arr3);
-
-
-    }
-
-    private static Element[] ConvertToElementArr(int[] arr)
-    {
-        Element[] nArr = new Element[arr.length];
-
-        for(int i = 0; i < arr.length; i++)
-        {
-            nArr[i] = new Element(arr[i], null);
-        }
-
-        return nArr;
     }
 }
