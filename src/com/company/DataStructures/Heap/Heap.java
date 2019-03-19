@@ -25,6 +25,7 @@ public class Heap {
     /**
      * Build a min or max heap accordingly to the specified HeapType.
      *
+     * Running time --> O(n)
      *
      * @param input
      */
@@ -60,6 +61,8 @@ public class Heap {
 
         //Insert e into the last index
         heap[i] = e;
+
+        var parentI = Parent(i);
 
         //As long as the index is above the root, namely 0, and the parent's key at our respective index is lower than our key, then child with parent
         while (i > 0 && (heap[Parent(i)].getKey() > heap[i].getKey()))
@@ -162,8 +165,6 @@ public class Heap {
         int lIndex = Left(i);
         int rIndex = Right(i);
 
-
-
         int smallestIndex = i;
         //As long as lIndex is greater than the size of the heap and
         //lChild is less than it's parent make lChild smallestIndesx else make parent
@@ -198,7 +199,7 @@ public class Heap {
      */
     private int Parent(int index)
     {
-        return index / 2;
+        return (index - 1) / 2;
     }
 
     /**

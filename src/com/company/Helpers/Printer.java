@@ -15,6 +15,7 @@ public class Printer {
     public static void PrintHelperUrl()
     {
         System.out.println("http://sites.math.rutgers.edu/~ajl213/CLRS/CLRS.html");
+        System.out.println("https://www.cs.usfca.edu/~galles/visualization/Algorithms.html");
     }
 
     public static int[] SwapIndex(int[] input, int i, int j)
