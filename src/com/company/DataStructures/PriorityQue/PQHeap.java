@@ -11,6 +11,14 @@ public class PQHeap implements PQ {
         heap = new Element[heapSize];
     }
 
+    private int get_heapSize() {
+        return _heapSize;
+    }
+
+    public void set_heapSize(int _heapSize) {
+        this._heapSize = _heapSize;
+    }
+
     /**
      * Return the element with the lowest value.
      *
@@ -75,6 +83,11 @@ public class PQHeap implements PQ {
         _heapSize++;
     }
 
+    @Override
+    public int getHeapSize() {
+        return get_heapSize();
+    }
+
     private void MinHeapify(int i)
     {
         //Get index of left and right child respective to i
@@ -115,7 +128,7 @@ public class PQHeap implements PQ {
      */
     private int Parent(int index)
     {
-        return index / 2;
+        return (index - 1) / 2;
     }
 
     /**
